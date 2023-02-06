@@ -29,7 +29,7 @@ public class SolarArrayService {
         return repository.findAll();
     }
 
-    public SolarArray create( request) {
+    public SolarArray create(SolarArrayRequest request) {
         SolarArray solarArray = new SolarArray();
         solarArray.setUser_id(request.getUser_id());
         solarArray.setAngle(request.getAngle());
