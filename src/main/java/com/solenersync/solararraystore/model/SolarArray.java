@@ -17,7 +17,7 @@ public class SolarArray {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
-    @SequenceGenerator(name = "generator", sequenceName = "solar-arrays_solar_array_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "generator", sequenceName = "solar_arrays_solar_array_id_seq", allocationSize = 1)
     @Column(name = "solar_array_id")
     public Integer solar_array_id;
 
