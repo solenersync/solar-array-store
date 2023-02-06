@@ -1,0 +1,12 @@
+{
+  "solar_array_id": 23001,
+  "user_id": 10001,
+  "angle": 35,
+  "aspect": 2,
+  "lat": 52.1234,
+  "lon": 8.1234,
+  "loss": 0.14,
+  "mounting": "FREE",
+  "peakPower": 6,
+  "created_date": "2022-08-12T19:30:30"
+}
