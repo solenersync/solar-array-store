@@ -24,7 +24,7 @@ public class SolarArrayController {
         return solarArrayService.findById(id);
     }
 
-    @PostMapping("/create-array")
+    @PostMapping("/create")
     public Integer createSolarArray(@RequestBody SolarArrayRequest request) {
         SolarArray solarArray = solarArrayService.create(request);
         log.debug("Created solar array {}");
