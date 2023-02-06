@@ -1,4 +1,4 @@
-package com.solenersync.sesdemo;
+package com.solenersync.solararraystore;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,16 +8,16 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
-public class SesDemoApplication {
+public class SolarArrayStoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SesDemoApplication.class, args);
+		SpringApplication.run(SolarArrayStoreApplication.class, args);
 	}
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			System.out.println("ses-demo up and running...");
+			System.out.println("solar-array-store up and running...");
 		};
 	}
 

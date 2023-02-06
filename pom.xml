@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.solenersync</groupId>
-	<artifactId>ses-demo</artifactId>
+	<artifactId>solar-array-store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ses-demo</name>
-	<description>Demo for Spring Boot</description>
+	<name>solar-array-store</name>
+	<description>Store for solar arrays</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

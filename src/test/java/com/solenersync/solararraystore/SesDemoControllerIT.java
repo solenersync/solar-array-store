@@ -1,4 +1,4 @@
-package com.solenersync.sesdemo;
+package com.solenersync.solararraystore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +9,14 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SesDemoControllerIT {
+class SolarArrayStoreControllerIT {
 
 	@Autowired
 	private TestRestTemplate template;
 
 	@Test
-	public void getHello() throws Exception {
-		ResponseEntity<String> response = template.getForEntity("/v1/ses-demo/test", String.class);
-		assertThat(response.getBody()).isEqualTo("Testing 1...2...");
+	public void getSolarTest() throws Exception {
+		ResponseEntity<String> response = template.getForEntity("/api/v1/solar-arrays/test", String.class);
+		assertThat(response.getBody()).isEqualTo("Solar Testing 1...2...");
 	}
 }

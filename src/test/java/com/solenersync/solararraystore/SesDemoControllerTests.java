@@ -1,6 +1,6 @@
-package com.solenersync.sesdemo;
+package com.solenersync.solararraystore;
 
-import com.solenersync.sesdemo.controller.HelloController;
+import com.solenersync.solararraystore.controller.SolarArrayController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,20 +15,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith({MockitoExtension.class})
-class SesDemoControllerTests {
+class SolarArrayStoreControllerTests {
 
 	private MockMvc mockMvc;
 
 	@BeforeEach
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new SolarArrayController()).build();
 	}
 
 	@Test
 	public void getHello() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/v1/ses-demo/test").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/solar-arrays/test").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(content().string(equalTo("Testing 1...2...")));
+			.andExpect(content().string(equalTo("Solar Testing 1...2...")));
 	}
 
 }
