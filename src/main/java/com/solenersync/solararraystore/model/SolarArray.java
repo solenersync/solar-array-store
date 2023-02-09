@@ -2,6 +2,7 @@ package com.solenersync.solararraystore.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ public class SolarArray {
     @Column(name = "solar_array_id")
     public Integer solar_array_id;
 
+    @NotNull(message = "User_id Required")
     @Column(name = "user_id")
     private Integer user_id;
 
@@ -42,6 +44,7 @@ public class SolarArray {
     @Column(name = "aspect")
     private float aspect;
 
+    @NotNull(message = "Mounting Required")
     @Column(name = "mounting")
     private Mounting mounting;
 
