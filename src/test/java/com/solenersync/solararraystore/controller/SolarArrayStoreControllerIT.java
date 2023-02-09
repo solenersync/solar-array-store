@@ -1,4 +1,4 @@
-package com.solenersync.solararraystore;
+package com.solenersync.solararraystore.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,72 +1,27 @@
 package com.solenersync.solararraystore.repository;
 
+import com.solenersync.solararraystore.model.SolarArray;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 
 @Component
-public class SolarArrayRepository implements CrudRepository {
+public interface SolarArrayRepository extends CrudRepository <SolarArray, Integer>{
 
+    Optional<SolarArray> findById(Integer id);
 
-    @Override
-    public Object save(Object entity) {
-        return null;
-    }
+    List<SolarArray> findAll();
 
-    @Override
-    public Iterable saveAll(Iterable entities) {
-        return null;
-    }
+    SolarArray save(SolarArray solarArray);
 
-    @Override
-    public Optional findById(Object o) {
-        return Optional.empty();
-    }
+    void deleteById(Integer id);
 
-    @Override
-    public boolean existsById(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterable findAll() {
-        return null;
-    }
-
-    @Override
-    public Iterable findAllById(Iterable iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public void deleteById(Object o) {
-
-    }
-
-    @Override
-    public void delete(Object entity) {
-
-    }
-
-    @Override
-    public void deleteAllById(Iterable iterable) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable entities) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
+    @Query(
+        value = "SELECT * FROM solar_arrays s WHERE s.user_id = ?1 ORDER BY s.solar_array_id",
+        nativeQuery = true)
+    List<SolarArray> findByUserId(Integer user_id);
 }
