@@ -1,12 +1,13 @@
 package com.solenersync.solararraystore;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-
+@Slf4j
 @SpringBootApplication
 public class SolarArrayStoreApplication {
 
@@ -17,7 +18,7 @@ public class SolarArrayStoreApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			System.out.println("solar-array-store up and running...");
+			log.info("solar-array-store up and running...");
 		};
 	}
 
