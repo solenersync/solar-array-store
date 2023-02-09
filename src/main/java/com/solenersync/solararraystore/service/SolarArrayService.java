@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -25,6 +26,11 @@ public class SolarArrayService {
     }
 
     @Transactional(readOnly = true)
+    public List<SolarArray> findByUserId(Integer userId) {
+        return repository.findByUserId(userId);
+    };
+
+    @Transactional(readOnly = true)
     public Iterable findAll() {
         return repository.findAll();
     }
@@ -40,7 +46,11 @@ public class SolarArrayService {
         solarArray.setMounting(request.getMounting());
         solarArray.setPeakPower(request.getPeakPower());
         solarArray.setCreated_date(LocalDateTime.now());
-        SolarArray newSolarArray = (SolarArray) repository.save(solarArray);
+        SolarArray newSolarArray = repository.save(solarArray);
         return newSolarArray;
+    }
+
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }
