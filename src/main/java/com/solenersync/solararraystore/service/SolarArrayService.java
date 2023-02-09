@@ -26,7 +26,7 @@ public class SolarArrayService {
     }
 
     @Transactional(readOnly = true)
-    public List<SolarArray> findByUserId(Integer userId) {
+        public Optional<List> findByUserId(Integer userId) {
         return repository.findByUserId(userId);
     };
 
@@ -35,7 +35,7 @@ public class SolarArrayService {
         return repository.findAll();
     }
 
-    public SolarArray create(SolarArrayRequest request) {
+    public Optional<SolarArray> create(SolarArrayRequest request) {
         SolarArray solarArray = new SolarArray();
         solarArray.setUser_id(request.getUser_id());
         solarArray.setAngle(request.getAngle());
@@ -47,10 +47,10 @@ public class SolarArrayService {
         solarArray.setPeakPower(request.getPeakPower());
         solarArray.setCreated_date(LocalDateTime.now());
         SolarArray newSolarArray = repository.save(solarArray);
-        return newSolarArray;
+        return Optional.ofNullable(newSolarArray);
     }
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
-    }
+    };
 }
