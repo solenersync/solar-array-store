@@ -1,5 +1,6 @@
-package com.solenersync.solararraystore.controller;
+package com.solenersync.solararraystore;
 
+import com.solenersync.solararraystore.controller.SolarArrayController;
 import com.solenersync.solararraystore.model.Mounting;
 import com.solenersync.solararraystore.model.SolarArray;
 import com.solenersync.solararraystore.service.SolarArrayService;
