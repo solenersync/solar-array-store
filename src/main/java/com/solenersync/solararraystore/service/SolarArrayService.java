@@ -34,21 +34,21 @@ public class SolarArrayService {
     public Optional<SolarArray> create(SolarArrayRequest request) {
         Mounting mounting = request.getMounting().equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
         SolarArray solarArray = new SolarArray();
-        solarArray.setUser_id(request.getUser_id());
+        solarArray.setUserId(request.getUserId());
         solarArray.setAngle(request.getAngle());
         solarArray.setAspect(request.getAspect());
         solarArray.setLat(request.getLat());
         solarArray.setLon(request.getLon());
         solarArray.setLoss(request.getLoss());
         solarArray.setMounting(mounting);
-        solarArray.setPeak_power(request.getPeak_power());
+        solarArray.setPeakPower(request.getPeakPower());
         solarArray.setCreated_date(LocalDateTime.now());
         SolarArray newSolarArray = repository.save(solarArray);
         return Optional.ofNullable(newSolarArray);
     }
 
     public Optional<SolarArray> update(SolarArrayUpdateRequest request) {
-        Optional<SolarArray> optionalSolarArray = repository.findById(request.getSolar_array_id());
+        Optional<SolarArray> optionalSolarArray = repository.findById(request.getSolarArrayId());
         if (optionalSolarArray.isPresent()) {
             Mounting mounting = request.getMounting().equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
             SolarArray updateSolarArray = optionalSolarArray.get();
@@ -58,7 +58,7 @@ public class SolarArrayService {
             updateSolarArray.setLon(request.getLon());
             updateSolarArray.setLoss(request.getLoss());
             updateSolarArray.setMounting(mounting);
-            updateSolarArray.setPeak_power(request.getPeak_power());
+            updateSolarArray.setPeakPower(request.getPeakPower());
             updateSolarArray.setCreated_date(LocalDateTime.now());
             SolarArray newSolarArray = repository.save(updateSolarArray);
             return Optional.ofNullable(newSolarArray);

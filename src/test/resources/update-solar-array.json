@@ -1,10 +1,10 @@
 {
-  "solar_array_id": 23001,
+  "solarArrayId": 23001,
   "angle": 35,
   "aspect": 2,
   "lat": 52.1234,
   "lon": 8.1234,
   "loss": 0.14,
   "mounting": "Roof Mounted",
-  "peak_power": 6
+  "peakPower": 6
 }
