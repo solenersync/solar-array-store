@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThatRuntimeException;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
@@ -106,7 +107,7 @@ class SolarArrayStoreServiceTests {
     void should_return_empty_when_error_creating_solar_array(JsonObject json) throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(null);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
-        assertThat(result).isEqualTo(Optional.empty());
+        assertThat(result).isEmpty();
     }
 
     @Test
@@ -121,7 +122,7 @@ class SolarArrayStoreServiceTests {
     void should_return_empty_when_error_updating_solar_array() throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(null);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
-        assertThat(result).isEqualTo(Optional.empty());
+        assertThat(result).isEmpty();
     }
 
     @Test
@@ -137,7 +138,7 @@ class SolarArrayStoreServiceTests {
         Integer id = 10001;
         when(solarArrayRepository.findByUserId(id)).thenReturn(Optional.empty());
         Optional<SolarArray> result = solarArrayService.findByUserId(id);
-        assertThat(result).isEqualTo(Optional.empty());
+        assertThat(result).isEmpty();
     }
 
     @Test
@@ -152,11 +153,7 @@ class SolarArrayStoreServiceTests {
     void should_return_runtime_exception_when_error_deleting_solar_array() throws Exception {
         Integer id = 23001;
         doThrow(new RuntimeException()).when(solarArrayRepository).deleteById(id);
-        try {
-            solarArrayService.deleteById(id);
-        } catch (Exception e) {
-            assertThat(assertThatRuntimeException());
-        }
+        assertThrows(RuntimeException.class, () -> solarArrayService.deleteById(id));
         verify(solarArrayRepository, times(1)).deleteById(id);
     }
 
