@@ -32,8 +32,8 @@ public class SolarArray {
     @Column(name = "lon")
     private float lon;
 
-    @Column(name = "peakPower")
-    private float peakPower;
+    @Column(name = "peak_power")
+    private float peak_power;
 
     @Column(name = "loss")
     private float loss;
@@ -58,7 +58,7 @@ public class SolarArray {
             "solar_array_id=" + solar_array_id +
             ", lat=" + lat +
             ", lon=" + lon +
-            ", peakPower=" + peakPower +
+            ", peak_power=" + peak_power +
             ", loss=" + loss +
             ", angle=" + angle +
             ", aspect=" + aspect +
