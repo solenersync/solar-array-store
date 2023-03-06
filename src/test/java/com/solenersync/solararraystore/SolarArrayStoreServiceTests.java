@@ -27,7 +27,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
 
 @ExtendWith({MockitoExtension.class})
-public class SolarArrayStoreServiceTests {
+class SolarArrayStoreServiceTests {
 
     private SolarArrayService solarArrayService;
     private SolarArrayRequest solarArrayRequest;
@@ -78,7 +78,7 @@ public class SolarArrayStoreServiceTests {
     }
 
     @Test
-    public void should_return_solar_array_when_found_by_id() {
+    void should_return_solar_array_when_found_by_id() {
         Integer id = 23001;
         when(solarArrayRepository.findById(id)).thenReturn(Optional.of(solarArray));
         Optional<SolarArray> result = solarArrayService.findById(id);
@@ -103,7 +103,7 @@ public class SolarArrayStoreServiceTests {
 
     @ParameterizedTest
     @JsonFileSource(resources = "/create-solar-array.json")
-    public void should_return_empty_when_error_creating_solar_array(JsonObject json) throws Exception {
+    void should_return_empty_when_error_creating_solar_array(JsonObject json) throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(null);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
         assertThat(result).isEqualTo(Optional.empty());
@@ -118,7 +118,7 @@ public class SolarArrayStoreServiceTests {
     }
 
     @Test
-    public void should_return_empty_when_error_updating_solar_array() throws Exception {
+    void should_return_empty_when_error_updating_solar_array() throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(null);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
         assertThat(result).isEqualTo(Optional.empty());
@@ -141,7 +141,7 @@ public class SolarArrayStoreServiceTests {
     }
 
     @Test
-    public void should_not_throw_error_when_solar_array_is_deleted() throws Exception {
+    void should_not_throw_error_when_solar_array_is_deleted() throws Exception {
         Integer id = 23001;
         doNothing().when(solarArrayRepository).deleteById(id);
         solarArrayService.deleteById(id);
@@ -149,7 +149,7 @@ public class SolarArrayStoreServiceTests {
     }
 
     @Test
-    public void should_return_runtime_exception_when_error_deleting_solar_array() throws Exception {
+    void should_return_runtime_exception_when_error_deleting_solar_array() throws Exception {
         Integer id = 23001;
         doThrow(new RuntimeException()).when(solarArrayRepository).deleteById(id);
         try {
