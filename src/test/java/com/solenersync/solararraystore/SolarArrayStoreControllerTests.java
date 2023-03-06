@@ -43,7 +43,7 @@ class SolarArrayStoreControllerTests {
 	private LocalDateTime date;
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		mockMvc = MockMvcBuilders.standaloneSetup(new SolarArrayController(solarArrayService)).build();
 		date = LocalDateTime.of(2022, 8, 12, 19, 30, 30);
 		solarArray = SolarArray.builder()
@@ -62,7 +62,7 @@ class SolarArrayStoreControllerTests {
 
 	@ParameterizedTest
 	@JsonFileSource(resources = "/get-solar-array.json")
-	public void should_return_solar_array_when_found_by_id(JsonObject json) throws Exception {
+	void should_return_solar_array_when_found_by_id(JsonObject json) throws Exception {
 		when(solarArrayService.findById(23001)).thenReturn(Optional.of(solarArray));
 		mockMvc.perform(get("/api/v1/solar-arrays/array/23001"))
 			.andExpect(status().isOk())
@@ -88,7 +88,7 @@ class SolarArrayStoreControllerTests {
 
 	@ParameterizedTest
 	@JsonFileSource(resources = "/create-solar-array.json")
-	public void should_return_internal_server_error_when_error_creating_solar_array(JsonObject json) throws Exception {
+	void should_return_internal_server_error_when_error_creating_solar_array(JsonObject json) throws Exception {
 		doAnswer(invocation -> {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error creating solar array");
 		}).when(solarArrayService).create(any(SolarArrayRequest.class));
@@ -112,7 +112,7 @@ class SolarArrayStoreControllerTests {
 
 	@ParameterizedTest
 	@JsonFileSource(resources = "/update-solar-array.json")
-	public void should_return_internal_server_error_when_error_updating_solar_array(JsonObject json) throws Exception {
+	void should_return_internal_server_error_when_error_updating_solar_array(JsonObject json) throws Exception {
 		doAnswer(invocation -> {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error updating solar array");
 		}).when(solarArrayService).update(any(SolarArrayUpdateRequest.class));
@@ -140,7 +140,7 @@ class SolarArrayStoreControllerTests {
 	}
 
 	@Test
-	public void should_return_ok_when_solar_array_is_deleted() throws Exception {
+	void should_return_ok_when_solar_array_is_deleted() throws Exception {
 		Integer id = 23001;
 		doNothing().when(solarArrayService).deleteById(id);
 		mockMvc.perform(delete("/api/v1/solar-arrays/array/23001"))
@@ -149,7 +149,7 @@ class SolarArrayStoreControllerTests {
 	}
 
 	@Test
-	public void should_return_internal_server_error_when_error_deleting_solar_array() throws Exception {
+	void should_return_internal_server_error_when_error_deleting_solar_array() throws Exception {
 		Integer id = 23001;
 		doThrow(new RuntimeException()).when(solarArrayService).deleteById(id);
 		mockMvc.perform(delete("/api/v1/solar-arrays/array/23001"))
