@@ -47,15 +47,15 @@ class SolarArrayStoreControllerTests {
 		mockMvc = MockMvcBuilders.standaloneSetup(new SolarArrayController(solarArrayService)).build();
 		date = LocalDateTime.of(2022, 8, 12, 19, 30, 30);
 		solarArray = SolarArray.builder()
-			.solar_array_id(23001)
-			.user_id(10001)
+			.solarArrayId(23001)
+			.userId(10001)
 			.angle(35f)
 			.aspect(2f)
 			.lat(52.1234f)
 			.lon(8.1234f)
 			.loss(0.14f)
 			.mounting(Mounting.FREE)
-			.peak_power(6f)
+			.peakPower(6f)
 			.created_date(date)
 			.build();
 	}

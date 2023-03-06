@@ -42,38 +42,38 @@ public class SolarArrayStoreServiceTests {
     void setUp() {
         solarArrayService = new SolarArrayService(solarArrayRepository);
         solarArray = SolarArray.builder()
-            .solar_array_id(23001)
-            .user_id(10001)
+            .solarArrayId(23001)
+            .userId(10001)
             .angle(35f)
             .aspect(2f)
             .lat(52.1234f)
             .lon(8.1234f)
             .loss(0.14f)
             .mounting(Mounting.FREE)
-            .peak_power(6f)
+            .peakPower(6f)
             .created_date(date)
             .build();
 
         solarArrayRequest = SolarArrayRequest.builder()
-            .user_id(10001)
+            .userId(10001)
             .angle(35f)
             .aspect(2f)
             .lat(52.1234f)
             .lon(8.1234f)
             .loss(0.14f)
             .mounting("Roof Mounted")
-            .peak_power(6f)
+            .peakPower(6f)
             .build();
 
         solarArrayUpdateRequest = SolarArrayUpdateRequest.builder()
-            .solar_array_id(23001)
+            .solarArrayId(23001)
             .angle(35f)
             .aspect(2f)
             .lat(52.1234f)
             .lon(8.1234f)
             .loss(0.14f)
             .mounting("Roof Mounted")
-            .peak_power(6f)
+            .peakPower(6f)
             .build();
     }
 
