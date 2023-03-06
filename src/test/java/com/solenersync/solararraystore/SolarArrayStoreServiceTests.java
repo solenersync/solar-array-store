@@ -91,7 +91,7 @@ class SolarArrayStoreServiceTests {
         Integer id = 23002;
         when(solarArrayRepository.findById(id)).thenReturn(Optional.empty());
         Optional<SolarArray> result = solarArrayService.findById(id);
-        assertThat(result).isEqualTo(Optional.empty());
+        assertThat(result).isEmpty();
     }
 
     @ParameterizedTest
