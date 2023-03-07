@@ -94,17 +94,15 @@ class SolarArrayStoreServiceTests {
         assertThat(result).isEmpty();
     }
 
-    @ParameterizedTest
-    @JsonFileSource(resources = "/create-solar-array.json")
-    void should_return_solar_array_when_new_array_created(JsonObject json) throws Exception {
+    @Test
+    void should_return_solar_array_when_new_array_created() throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(solarArray);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
         assertThat(result).isEqualTo(Optional.of(solarArray));
     }
 
-    @ParameterizedTest
-    @JsonFileSource(resources = "/create-solar-array.json")
-    void should_return_empty_when_error_creating_solar_array(JsonObject json) throws Exception {
+    @Test
+    void should_return_empty_when_error_creating_solar_array() throws Exception {
         when(solarArrayRepository.save(any(SolarArray.class))).thenReturn(null);
         Optional<SolarArray> result = solarArrayService.create(solarArrayRequest);
         assertThat(result).isEmpty();
