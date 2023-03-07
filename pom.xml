@@ -139,6 +139,11 @@
 								</configuration>
 							</execution>
 						</executions>
+						<configuration>
+							<excludes>
+								<exclude>SolarArrayStoreApplication.java</exclude>
+							</excludes>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
