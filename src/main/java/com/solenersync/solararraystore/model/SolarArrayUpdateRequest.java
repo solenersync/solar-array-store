@@ -7,9 +7,9 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SolarArrayRequest {
+public class SolarArrayUpdateRequest {
 
-    private Integer userId;
+    private Integer solarArrayId;
     private float lat;
     private float lon;
     private float peakPower;

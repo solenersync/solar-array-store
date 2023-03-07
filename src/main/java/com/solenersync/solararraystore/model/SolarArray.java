@@ -18,13 +18,13 @@ public class SolarArray {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
-    @SequenceGenerator(name = "generator", sequenceName = "solar_arrays_solar_array_id_seq", allocationSize = 1)
-    @Column(name = "solar_array_id")
-    public Integer solar_array_id;
+    @SequenceGenerator(name = "generator", sequenceName = "solar_arrays_solarArrayId_seq", allocationSize = 1)
+    @Column(name = "solarArrayId")
+    public Integer solarArrayId;
 
-    @NotNull(message = "User_id Required")
-    @Column(name = "user_id")
-    private Integer user_id;
+    @NotNull(message = "UserId Required")
+    @Column(name = "userId")
+    private Integer userId;
 
     @Column(name = "lat")
     private float lat;
@@ -55,7 +55,7 @@ public class SolarArray {
     @Override
     public String toString() {
         return "SolarArray{" +
-            "solar_array_id=" + solar_array_id +
+            "solarArrayId=" + solarArrayId +
             ", lat=" + lat +
             ", lon=" + lon +
             ", peakPower=" + peakPower +
