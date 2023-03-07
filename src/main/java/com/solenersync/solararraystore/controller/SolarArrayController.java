@@ -19,7 +19,6 @@ public class SolarArrayController {
 
     public SolarArrayController(SolarArrayService solarArrayService) { this.solarArrayService = solarArrayService; }
 
-    @CrossOrigin
     @GetMapping("/array/{id}")
     public ResponseEntity<SolarArray> getSolarArray(@PathVariable Integer id) {
         log.info("Retrieving solar array id: {} ",id);
@@ -27,7 +26,6 @@ public class SolarArrayController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @CrossOrigin
     @PostMapping("/create")
     public ResponseEntity<SolarArray> createSolarArray(@Valid @RequestBody SolarArrayRequest request) {
         log.info("Creating solar array");
@@ -35,7 +33,6 @@ public class SolarArrayController {
             .orElseGet(() -> ResponseEntity.internalServerError().build());
     }
 
-    @CrossOrigin
     @PostMapping("/update")
     public ResponseEntity<SolarArray> updateSolarArray(@Valid @RequestBody SolarArrayUpdateRequest request) {
         log.info("Updating solar array");
@@ -43,7 +40,6 @@ public class SolarArrayController {
             .orElseGet(() -> ResponseEntity.internalServerError().build());
     }
 
-    @CrossOrigin
     @GetMapping("/array/user/{id}")
     public ResponseEntity<SolarArray> getUserSolarArray(@PathVariable Integer id) {
         log.info("Retrieving solar array for user id: {} ",id);
@@ -51,7 +47,6 @@ public class SolarArrayController {
             .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @CrossOrigin
     @DeleteMapping("/array/{id}")
     public ResponseEntity<Object> deleteSolarArray(@PathVariable Integer id) {
         log.info("Deleting solar array id: {} ",id);
