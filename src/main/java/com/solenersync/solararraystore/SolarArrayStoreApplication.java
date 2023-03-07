@@ -17,9 +17,7 @@ public class SolarArrayStoreApplication {
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
+		return args ->
 			log.info("solar-array-store up and running...");
-		};
 	}
-
 }

@@ -29,7 +29,7 @@ public class SolarArrayService {
     @Transactional(readOnly = true)
     public Optional<SolarArray> findByUserId(Integer userId) {
         return repository.findByUserId(userId);
-    };
+    }
 
     public Optional<SolarArray> create(SolarArrayRequest request) {
         Mounting mounting = request.getMounting().equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
@@ -69,5 +69,5 @@ public class SolarArrayService {
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
-    };
+    }
 }
