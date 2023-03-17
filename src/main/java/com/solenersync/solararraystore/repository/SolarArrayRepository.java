@@ -21,7 +21,7 @@ public interface SolarArrayRepository extends CrudRepository <SolarArray, Intege
     void deleteById(Integer id);
 
     @Query(
-        value = "SELECT * FROM solar_arrays s WHERE s.userId = ?1 ORDER BY s.solarArrayId",
+        value = "SELECT * FROM solar_arrays s WHERE s.user_id = ?1 ORDER BY s.solar_array_id",
         nativeQuery = true)
     Optional<SolarArray> findByUserId(Integer userId);
 }
