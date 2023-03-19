@@ -18,12 +18,12 @@ public class SolarArray {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
-    @SequenceGenerator(name = "generator", sequenceName = "solar_arrays_solarArrayId_seq", allocationSize = 1)
-    @Column(name = "solarArrayId")
+    @SequenceGenerator(name = "generator", sequenceName = "solar_arrays_solar_array_id_seq", allocationSize = 1)
+    @Column(name = "solar_array_id")
     public Integer solarArrayId;
 
     @NotNull(message = "UserId Required")
-    @Column(name = "userId")
+    @Column(name = "user_id")
     private Integer userId;
 
     @Column(name = "lat")
@@ -32,7 +32,7 @@ public class SolarArray {
     @Column(name = "lon")
     private float lon;
 
-    @Column(name = "peakPower")
+    @Column(name = "peak_power")
     private float peakPower;
 
     @Column(name = "loss")
