@@ -1,4 +1,4 @@
-name: Provider Tests
+name: Contract Tests
 
 on:
   push:
@@ -14,7 +14,7 @@ env:
 
 jobs:
   test:
-    name: Verify contract
+    name: Provider verify
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
