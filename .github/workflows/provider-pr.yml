@@ -27,7 +27,7 @@ jobs:
       - name: Prepare
         run: mvn compile test-compile
       - name: Pull and verify contracts
-        run: mvn test -P pact-provider -Dpact.verifier.publishResults=true -Dpact.provider.version=PR-${GITHUB_REF} -Dpactbroker.url=$PACT_BROKER_BASE_URL -Dpactbroker.token=$PACT_BROKER_TOKEN -Dpactbroker.consumerversionselectors.tags=main
+        run: mvn test -P pact-provider -Dpact.verifier.publishResults=true -Dpact.provider.version=PR-${GITHUB_REF} -Dpactbroker.url=$PACT_BROKER_BASE_URL -Dpactbroker.token=$PACT_BROKER_TOKEN
 
 #  # Runs on branches as well, so we know the status of our PRs
 #  can-i-deploy:
