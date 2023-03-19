@@ -5,7 +5,6 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.*;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.solenersync.solararraystore.repository.SolarArrayRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -27,7 +26,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @IgnoreMissingStateChange
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("pact-provider")
-public class SolarArrayStoreProviderTests {
+public class SolarArrayStoreProviderContractTests {
 
     @MockBean
     SolarArrayRepository solarArrayRepository;
