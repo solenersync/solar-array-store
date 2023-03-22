@@ -30,7 +30,7 @@ public class StubSetup {
 
 
     public void stubForGetSolarArray(SolarArrayRepository solarArrayRepository) {
-        when(solarArrayRepository.findByUserId(anyInt())).thenAnswer(invocation -> solarArray);
+        when(solarArrayRepository.findByUserId(anyInt())).thenAnswer(invocation -> Optional.of(solarArray));
     }
 
     public void stubForCreateSolarArray(SolarArrayRepository solarArrayRepository) {
