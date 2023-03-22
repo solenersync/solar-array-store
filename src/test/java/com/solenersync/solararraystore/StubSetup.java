@@ -1,9 +1,15 @@
 package com.solenersync.solararraystore;
 
+import au.com.dius.pact.provider.junitsupport.State;
 import com.solenersync.solararraystore.model.Mounting;
 import com.solenersync.solararraystore.model.SolarArray;
 import com.solenersync.solararraystore.repository.SolarArrayRepository;
 import lombok.experimental.UtilityClass;
+
+import java.util.Collections;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
@@ -24,6 +30,15 @@ public class StubSetup {
 
 
     public void stubForGetSolarArray(SolarArrayRepository solarArrayRepository) {
-        when(solarArrayRepository.findByUserId(anyInt())).thenAnswer(invocation -> solarArray);
+        when(solarArrayRepository.findByUserId(anyInt())).thenAnswer(invocation -> Optional.of(solarArray));
+    }
+
+    public void stubForCreateSolarArray(SolarArrayRepository solarArrayRepository) {
+        when(solarArrayRepository.save(any())).thenAnswer(invocation -> solarArray);
+    }
+
+    public void stubForUpdateSolarArray(SolarArrayRepository solarArrayRepository) {
+        when(solarArrayRepository.findById(1)).thenReturn(Optional.of(solarArray));
+        when(solarArrayRepository.save(any())).thenAnswer(invocation -> solarArray);
     }
 }
