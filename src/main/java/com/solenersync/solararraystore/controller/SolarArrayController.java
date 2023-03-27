@@ -33,6 +33,7 @@ public class SolarArrayController {
             .orElseGet(() -> ResponseEntity.internalServerError().build());
     }
 
+
     @PostMapping("/update")
     public ResponseEntity<SolarArray> updateSolarArray(@Valid @RequestBody SolarArrayUpdateRequest request) {
         log.info("Updating solar array");
@@ -40,6 +41,7 @@ public class SolarArrayController {
             .orElseGet(() -> ResponseEntity.internalServerError().build());
     }
 
+    @CrossOrigin("http://localhost:3000")
     @GetMapping("/array/user/{id}")
     public ResponseEntity<SolarArray> getUserSolarArray(@PathVariable Integer id) {
         log.info("Retrieving solar array for user id: {} ",id);
