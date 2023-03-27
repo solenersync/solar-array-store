@@ -33,8 +33,17 @@ public class StubSetup {
         when(solarArrayRepository.findByUserId(anyInt())).thenAnswer(invocation -> Optional.of(solarArray));
     }
 
+    public void stubForGetSolarArrayFail(SolarArrayRepository solarArrayRepository) {
+        when(solarArrayRepository.findById(any())).thenReturn(null);
+    }
+
+
     public void stubForCreateSolarArray(SolarArrayRepository solarArrayRepository) {
         when(solarArrayRepository.save(any())).thenAnswer(invocation -> solarArray);
+    }
+
+    public void stubForCreateSolarArrayFail(SolarArrayRepository solarArrayRepository) {
+        when(solarArrayRepository.save(any())).thenAnswer(invocation -> null);
     }
 
     public void stubForUpdateSolarArray(SolarArrayRepository solarArrayRepository) {

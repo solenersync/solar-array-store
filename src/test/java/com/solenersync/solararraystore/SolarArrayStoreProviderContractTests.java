@@ -51,18 +51,33 @@ public class SolarArrayStoreProviderContractTests {
         }
     }
 
-    @State("should return a solar array")
+    @State("a solar array exists")
     void getUserSolarArray() {
         StubSetup.stubForGetSolarArray(solarArrayRepository);
     }
 
-    @State("should create solar array and return array details")
+    @State("a solar array doesnt exist")
+    void getUserSolarArrayFail() {
+        StubSetup.stubForGetSolarArrayFail(solarArrayRepository);
+    }
+
+    @State("a solar array is created")
     void createUser() {
         StubSetup.stubForCreateSolarArray(solarArrayRepository);
     }
 
-    @State("should update solar array and return status 200")
+    @State("a solar array fails to be created")
+    void createUserFail() {
+        StubSetup.stubForCreateSolarArrayFail(solarArrayRepository);
+    }
+
+    @State("a solar array is updated")
     void updateUser() {
+        StubSetup.stubForUpdateSolarArray(solarArrayRepository);
+    }
+
+    @State("a solar array fails to update")
+    void updateUserFail() {
         StubSetup.stubForUpdateSolarArray(solarArrayRepository);
     }
 
