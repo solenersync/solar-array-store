@@ -34,6 +34,7 @@ public class SolarArrayController {
     }
 
 
+    @CrossOrigin("http://localhost:3000")
     @PostMapping("/update")
     public ResponseEntity<SolarArray> updateSolarArray(@Valid @RequestBody SolarArrayUpdateRequest request) {
         log.info("Updating solar array");
