@@ -1,4 +1,5 @@
 # solar-array-store
-Author: Brian Kinsella
+
+Backend service manages solar array data
 
 
