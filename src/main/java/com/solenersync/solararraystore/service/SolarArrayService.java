@@ -74,11 +74,11 @@ public class SolarArrayService {
         repository.deleteById(id);
     }
 
-    private boolean isValidLat(double lat) {
+    public boolean isValidLat(double lat) {
         return lat >= -90 && lat <= 90;
     }
 
-    private boolean isValidLon(double lon) {
+    public boolean isValidLon(double lon) {
         return lon >= -180 && lon <= 180;
     }
 }
