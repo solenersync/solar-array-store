@@ -55,7 +55,6 @@ class SolarArrayStoreControllerUnitTests {
 			.lon(8.1234f)
 			.loss(0.14f)
 			.mounting(Mounting.FREE)
-			.peakPower(6f)
 			.created_date(date)
 			.build();
 	}

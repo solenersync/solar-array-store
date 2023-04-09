@@ -22,8 +22,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Provider("solar-array-store")
 @Consumer("ses-front-end")
-@PactBroker(url = "https://solenersync.pactflow.io", authentication = @PactBrokerAuth(token = "${PACT_BROKER_TOKEN}"))
-//@PactFolder("pacts")
+//@PactBroker(url = "https://solenersync.pactflow.io", authentication = @PactBrokerAuth(token = "${PACT_BROKER_TOKEN}"))
+@PactFolder("pacts")
 @IgnoreNoPactsToVerify
 @IgnoreMissingStateChange
 @ExtendWith(SpringExtension.class)

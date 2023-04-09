@@ -46,7 +46,6 @@ class SolarArrayStoreServiceUnitTests {
             .lon(8.1234f)
             .loss(0.14f)
             .mounting(Mounting.FREE)
-            .peakPower(6f)
             .created_date(date)
             .build();
 
@@ -58,7 +57,6 @@ class SolarArrayStoreServiceUnitTests {
             .lon(8.1234f)
             .loss(0.14f)
             .mounting("Roof Mounted")
-            .peakPower(6f)
             .build();
 
         solarArrayUpdateRequest = SolarArrayUpdateRequest.builder()
@@ -69,7 +67,6 @@ class SolarArrayStoreServiceUnitTests {
             .lon(8.1234f)
             .loss(0.14f)
             .mounting("Roof Mounted")
-            .peakPower(6f)
             .build();
     }
 
