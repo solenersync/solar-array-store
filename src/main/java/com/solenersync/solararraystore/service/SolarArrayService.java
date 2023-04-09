@@ -32,6 +32,9 @@ public class SolarArrayService {
     }
 
     public Optional<SolarArray> create(SolarArrayRequest request) {
+        if (!isValidLat(request.getLat()) || !isValidLon(request.getLon())) {
+            return Optional.empty();
+        }
         Mounting mounting = request.getMounting().equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
         SolarArray solarArray = new SolarArray();
         solarArray.setUserId(request.getUserId());
@@ -69,5 +72,13 @@ public class SolarArrayService {
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    public boolean isValidLat(double lat) {
+        return lat >= -90 && lat <= 90;
+    }
+
+    public boolean isValidLon(double lon) {
+        return lon >= -180 && lon <= 180;
     }
 }
