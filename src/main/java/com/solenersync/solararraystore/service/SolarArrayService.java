@@ -7,11 +7,14 @@ import com.solenersync.solararraystore.model.SolarArrayUpdateRequest;
 import com.solenersync.solararraystore.repository.SolarArrayRepository;
 
 import java.time.LocalDateTime;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+@Slf4j
 @Transactional
 @Service
 public class SolarArrayService {
@@ -32,7 +35,17 @@ public class SolarArrayService {
     }
 
     public Optional<SolarArray> create(SolarArrayRequest request) {
-        Mounting mounting = request.getMounting().equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
+
+        if (!isValidLat(request.getLat()) ||
+            !isValidLon(request.getLon()) ||
+            !isValidLoss(request.getLoss()) ||
+            !isValidAngle(request.getAngle()))
+        {
+            log.debug("invalid solar array params entered");
+            return Optional.empty();
+        }
+        Mounting mounting = request.getMounting()
+            .equals("Roof Mounted") ? Mounting.BUILDING : Mounting.FREE;
         SolarArray solarArray = new SolarArray();
         solarArray.setUserId(request.getUserId());
         solarArray.setAngle(request.getAngle());
@@ -69,5 +82,21 @@ public class SolarArrayService {
 
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    public boolean isValidLat(double lat) {
+        return lat >= -90 && lat <= 90;
+    }
+
+    public boolean isValidLon(double lon) {
+        return lon >= -180 && lon <= 180;
+    }
+
+    public boolean isValidLoss(double loss) {
+        return loss >= 0 && loss <= 100;
+    }
+
+    public boolean isValidAngle(double angle) {
+        return angle >= -180 && angle <= 180;
     }
 }
