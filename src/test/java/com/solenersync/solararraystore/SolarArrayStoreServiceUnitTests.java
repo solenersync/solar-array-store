@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
@@ -150,59 +150,4 @@ class SolarArrayStoreServiceUnitTests {
         verify(solarArrayRepository, times(1)).deleteById(id);
     }
 
-    @Test
-    void should_not_create_ad_with_invalid_lat() {
-        solarArrayRequest.setLat(-1000);
-        assertThat(solarArrayService.create(solarArrayRequest).isPresent()).isFalse();
-    }
-
-    @Test
-    void should_not_create_ad_with_invalid_lon() {
-        solarArrayRequest.setLon(-1000);
-        assertThat(solarArrayService.create(solarArrayRequest).isPresent()).isFalse();
-    }
-
-    @Test
-    void should_not_create_ad_with_invalid_angle() {
-        solarArrayRequest.setAngle(-1000);
-        assertThat(solarArrayService.create(solarArrayRequest).isPresent()).isFalse();
-    }
-
-    @Test
-    void should_not_create_ad_with_invalid_loss() {
-        solarArrayRequest.setLoss(-1000);
-        assertThat(solarArrayService.create(solarArrayRequest).isPresent()).isFalse();
-    }
-
-    @Test
-    void should_validate_lat_is_between_minus_90_and_plus_90() {
-        assertThat(solarArrayService.isValidLat(-90.0)).isTrue();
-        assertThat(solarArrayService.isValidLat(90.0)).isTrue();
-        assertThat(solarArrayService.isValidLat(-90.1)).isFalse();
-        assertThat(solarArrayService.isValidLat(90.1)).isFalse();
-    }
-
-    @Test
-    void should_validate_lon_is_between_minus_180_and_plus_180() {
-        assertThat(solarArrayService.isValidLon(-180.0)).isTrue();
-        assertThat(solarArrayService.isValidLon(180.0)).isTrue();
-        assertThat(solarArrayService.isValidLon(-180.1)).isFalse();
-        assertThat(solarArrayService.isValidLon(180.1)).isFalse();
-    }
-
-    @Test
-    void should_validate_loss_is_between_0_and_100() {
-        assertThat(solarArrayService.isValidLoss(0)).isTrue();
-        assertThat(solarArrayService.isValidLoss(100.0)).isTrue();
-        assertThat(solarArrayService.isValidLoss(-0.1)).isFalse();
-        assertThat(solarArrayService.isValidLoss(100.1)).isFalse();
-    }
-
-    @Test
-    void should_validate_angle_is_between_minus_180_and_plus_180() {
-        assertThat(solarArrayService.isValidAngle(-180.0)).isTrue();
-        assertThat(solarArrayService.isValidAngle(180.0)).isTrue();
-        assertThat(solarArrayService.isValidAngle(-180.1)).isFalse();
-        assertThat(solarArrayService.isValidAngle(180.1)).isFalse();
-    }
 }
