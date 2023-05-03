@@ -54,7 +54,6 @@ public class SolarArrayService {
         solarArray.setLon(request.getLon());
         solarArray.setLoss(request.getLoss());
         solarArray.setMounting(mounting);
-        solarArray.setPeakPower(request.getPeakPower());
         solarArray.setCreated_date(LocalDateTime.now());
         SolarArray newSolarArray = repository.save(solarArray);
         return Optional.ofNullable(newSolarArray);
@@ -71,7 +70,6 @@ public class SolarArrayService {
             updateSolarArray.setLon(request.getLon());
             updateSolarArray.setLoss(request.getLoss());
             updateSolarArray.setMounting(mounting);
-            updateSolarArray.setPeakPower(request.getPeakPower());
             updateSolarArray.setCreated_date(LocalDateTime.now());
             SolarArray newSolarArray = repository.save(updateSolarArray);
             return Optional.ofNullable(newSolarArray);

@@ -21,7 +21,6 @@ public class StubSetup {
         .userId(1)
         .lat(52.207306f)
         .lon(-6.52026f)
-        .peakPower(8.2f)
         .loss(0.145f)
         .angle(35.0f)
         .aspect(2.0f)
